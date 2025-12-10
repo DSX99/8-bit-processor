@@ -23,36 +23,67 @@ OPCODES:
 Naming is the one that used in assembly.py
 
 cop xxx yyy
+
 00 xxx yyy - copy from yyy to xxx.
+
 Values for xxx and yyy:
+
 000 - reg0
+
 001 - reg1
+
 010 - reg2
+
 011 - reg3
+
 100 - reg4
+
 101 - reg5
+
 110 - RAM (ram in assembly)
+
 111 - global IO (glob in assembly)
 
+
 01 xxxxxx - immidiate values to reg0, as it can be seen it only can be from 0 to 63, for any other add should be used
+
 opcode      wording in assembly
+
 1 xxxxxxx - ALU
+
 10000 xxx - add, reg0 + reg1, save to xxx
+
 10001 xxx - sub, reg0 - reg1, save to xxx
+
 10010 xxx - neg, -reg0, save to xxx (it is just (bit wise not on reg0)+1 ,  aka assuming negative number is defined by leading bit )
+
 10011 xxx - and, reg0 & reg1, save to xxx, bitwise AND
+
 10100 xxx - not, ~reg0 , save to xxx, bitwise NOT
+
 10101 xxx - xor, reg0 ^ reg1, save to xxx, bitwise XOR
+
 10110 xxx - reserved
+
 10111 xxx - finish, stops simulation
 
+
+
 11000 xxx - ifeq_r, reg0 == reg1, change RAM address to xxx
+
 11010 xxx - ifgr_r, reg0 > reg1, change RAM address to xxx
+
 11100 xxx - ifneq_r, reg0 != reg1, change RAM address to xxx
+
 11110 xxx - ifngr_r, !(reg0 > reg1), change RAM address to xxx
+
 11001 xxx - ifeq_r, reg0 == reg1, change CODE address to xxx
+
 11011 xxx - ifgr_r, reg0 > reg1, change CODE address to xxx
+
 11101 xxx - ifneq_r, reg0 != reg1, change CODE address to xxx
+
 11111 xxx - ifngr_r, !(reg0 > reg1), change CODE address to xxx
+
 
 Well it should be all. Again if somehow you have question you can write to: nikita.nakonechnyy@nu.edu.kz.
