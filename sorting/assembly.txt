@@ -1,0 +1,106 @@
+imm 11            
+//-2 sort in non decreasing order
+cop reg2 reg0
+cop reg0 glob
+ifeq_c reg2    
+//-3 if glob ==0 then input is finished and we jump to sorting (-2)
+cop ram reg0
+imm 1
+cop reg1 reg5 
+//-4 reg5 stores how many inputs we made
+add reg5
+imm 0
+cop reg1 reg0
+ifeq_c reg0
+//-5 0-th preparation to start sorting loop
+imm 0
+cop reg2 reg0
+//-6 sorting loop, if reg2(ram counter)+1==reg5(how many we inputted) then we go to check are they in order or not
+imm 55
+cop reg3 reg0
+cop reg1 reg2
+imm 1
+add reg1
+cop reg0 reg5
+ifeq_c reg3
+imm 0
+cop reg1 reg0
+ifeq_r reg2
+imm 31
+cop reg3 reg0
+imm 43
+cop reg4 reg0
+cop reg0 ram
+cop reg1 ram
+ifgr_c reg3
+ifngr_c reg4
+//-7 reg0 is bigger
+cop reg3 reg0
+cop reg4 reg1
+imm 1
+cop reg1 reg0
+ifeq_r reg2
+cop ram reg4
+cop ram reg3
+cop reg1 reg2
+add reg2
+imm 13
+cop reg1 reg0
+ifeq_c reg0
+//-8 reg1 is bigger or eq
+cop reg4 reg0
+cop reg3 reg1
+imm 1
+cop reg1 reg0
+ifeq_r reg2
+cop ram reg4
+cop ram reg3
+cop reg1 reg2
+add reg2
+imm 13
+cop reg1 reg0
+ifeq_c reg0
+//-9 getting ready for testing loop
+imm 0
+cop reg2 reg0
+//-10 test looping
+imm 63
+cop reg1 reg0
+imm 16
+add reg3
+cop reg1 reg2
+imm 1
+add reg0
+cop reg1 reg5
+ifeq_c reg3
+imm 13
+cop reg3 reg0
+cop reg1 reg0
+ifeq_r reg2
+cop reg0 ram
+cop reg1 ram
+ifgr_c reg3
+imm 1
+cop reg1 reg2
+add reg2
+imm 57
+cop reg1 reg0
+ifeq_c reg1
+//-11 output
+imm 63
+cop reg1 reg0
+imm 31
+add reg2
+imm 63
+cop reg1 reg0
+imm 27
+add reg3 
+imm 0
+cop reg1 reg0
+ifeq_r reg0
+cop reg0 ram
+cop glob reg0
+ifeq_c reg2
+ifneq_c reg3
+//-12 finish
+finish
