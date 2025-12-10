@@ -15,9 +15,11 @@ MAIN POINTS:
 
 
 Description:
+
 This is a basic processor with 8-bit data bus, intruction bus and address space. While on basis it is created around harward architecture with differentiated memory and code, many aspects were modified to ease coding. In general it is one instrucion per cycle processor, and does not incorporate any pipelining. Due to this design choice has fallen to fetch instruction on negative edge of clock and execute on positive edge to avoid unstable values on control wires, while it should be possible and even better if both fetch and execute would have happened on positive edge of clock it would be longer/harder to code, however i will look in to is as leaving code as it is is not satisfiable. About other interesting design choices, RAM counter increments by itself at any operation of read/write from ram, it was chosen this way as most of programs in mind for this processor were about processing of consecutive data, so it just made sense to include it. As this processor was made with idea of single instruction per cycle and 8-bit instruction bus, amount of data directions is limited to 8 (aa bbb ccc, aa-opcode, bbb- to, ccc-from), due to this, 1 for IO, 1 for RAM, leaves only 6 regs available. Also due to 8-bit instruction bus, ALU operations are quite limited compared to full scale processors in addition to inability to chose on what register operate. ALU in aritmetic operations always works on reg0 and reg1, however it can choose where to store result (any memory destination). ALU in logic operations works on comparing reg0 and reg1, and extracting address to change to from any memory destination. Also, ALU does not give carry for operations. More on how opcodes work in the respective section. Processor gets code from code.txt file, its just easier to code this way for me, for note i use icarus verilog. Global inputs also stored in txt: global_input.txt. In both cases verilog reads line by line, truncating or padding to 8 bits as needed. Output is made when sending data to global output, it displays value in console with respective index. Also i wrote little assembly on python to ease coding, it can be found as assembly.py. If any questions appear you may ask on: nikita.nakonechnyy@nu.edu.kz.
 
 OPCODES:
+
 Naming is the one that used in assembly.py
 cop xxx yyy
 00 xxx yyy - copy from yyy to xxx.
