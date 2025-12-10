@@ -21,6 +21,7 @@ This is a basic processor with 8-bit data bus, intruction bus and address space.
 OPCODES:
 
 Naming is the one that used in assembly.py
+
 cop xxx yyy
 00 xxx yyy - copy from yyy to xxx.
 Values for xxx and yyy:
