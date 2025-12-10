@@ -1,5 +1,5 @@
 # 8-bit-processor
-Basic 8-bit processor with custom ISA built as a hobby.
+Basic 8-bit processor with custom ISA built as a hobby. There is example code in sorting folder, as name suggests it is a sorting code.
 
 MAIN POINTS:
 1. One instruction per clock cycle, no multi-cycle instructions 
