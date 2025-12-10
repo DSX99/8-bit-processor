@@ -86,4 +86,9 @@ opcode      wording in assembly
 11111 xxx - ifngr_r, !(reg0 > reg1), change CODE address to xxx
 
 
+About assembler:
+
+If anyone tries to work with assemler: i added comments, they should start with //, they should work anywhere in the code. Any new instructions should be in its own line and total number of intructions in 256, any more and code storage will not take them (8-bit address space).
+
+
 Well it should be all. Again if somehow you have question you can write to: nikita.nakonechnyy@nu.edu.kz.
